@@ -181,7 +181,7 @@ def agent(state, tools):
     model = ChatGroq(
         api_key=st.session_state.groq_api_key, 
         temperature=0, 
-        model="llama-3.1-70b-versatile"
+        model=model
     )
     model = model.bind_tools(tools)
     response = model.invoke(messages)
@@ -221,7 +221,7 @@ def rewrite(state):
     model = ChatGroq(
         api_key=st.session_state.groq_api_key, 
         temperature=0, 
-        model="llama-3.1-70b-versatile"
+        model=model
     )
     response = model.invoke(msg)
     return {"messages": [response]}
@@ -250,7 +250,7 @@ def generate(state):
     # Changed to ChatGroq
     chat_model = ChatGroq(
         api_key=st.session_state.groq_api_key, 
-        model="llama-3.1-70b-versatile", 
+        model=model, 
         temperature=0
     )
 
